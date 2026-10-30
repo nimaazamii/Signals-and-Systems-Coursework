@@ -1,0 +1,20 @@
+ts=1e-9;
+t=0:ts:1e-5;
+t_len=length(t);
+N=1000;
+x=zeros(1,t_len);
+x(1:N)=1;
+y=zeros(1,t_len);
+idx=3000;
+pulse=ones(1,N);
+y(idx:idx+N-1)=0.5*pulse;
+yn=y;
+ro=zeros(1,t_len-N-1);
+for i=1:t_len-N-1
+    ro(i)=pulse*yn(i:i+N-1)';
+end
+plot(t(1:t_len-N-1),ro)
+[val,index]=max(ro);
+td=index*ts;
+C=300e6;
+R=td*C/2;

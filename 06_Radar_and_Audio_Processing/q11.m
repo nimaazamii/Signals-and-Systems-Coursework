@@ -1,0 +1,10 @@
+t=0:0.01:1-0.01;
+fc=5;
+y=cos(2*pi*fc*t);
+plot(t,y)
+rou=2/(3e8);
+td=250*1000*rou;
+fd=0.3*180/3.6;
+re=0.5*cos(2*pi*(5+fd)*(t-td));
+figure
+plot(re)
